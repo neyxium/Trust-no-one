@@ -7,5 +7,4 @@ script = ExtResource("1_3fk4j")
 caller_name = 10
 caller_location = 2
 caller_incident = 1
-caller_tellin_truth = true
 metadata/_custom_type_script = "uid://dctkwc6fpq4ym"

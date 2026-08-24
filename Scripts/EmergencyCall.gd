@@ -68,12 +68,32 @@ enum IncidentType
 @export_multiline var text: String = "Hello, I am {caller} and I am at {location}. Here happened {incident}."
 
 func get_formatted_dialogue() -> String:
-	var name_str = CallerName.keys()[caller_name].replace("_"," ")
-	var location_str = LocationName.keys()[caller_location].replace("_"," ")
-	var incident_str = IncidentType.keys()[caller_incident].replace("_"," ")
+	var name_str = get_caller_name()
+	var location_str = get_caller_location()
+	var incident_str = get_caller_incident()
 	var data = {
 		"caller": name_str,
 		"location": location_str,
 		"incident": incident_str
 	}
 	return text.format(data)
+	
+func _get_truth_or_lie_value(true_value, all_values: Array, tell_truth: bool):
+	if caller_tellin_truth or randf() < 0.5:
+		return true_value
+	else:
+		var choices = all_values.duplicate()
+		choices.erase(true_value)
+		return choices.pick_random()
+
+func get_caller_name() -> String:
+	var choice: CallerName = _get_truth_or_lie_value(caller_name, CallerName.values(), caller_tellin_truth)
+	return CallerName.keys()[choice].replace("_"," ")
+
+func get_caller_location() -> String:
+	var choice: LocationName = _get_truth_or_lie_value(caller_location, LocationName.values(), caller_tellin_truth)
+	return LocationName.keys()[choice].replace("_"," ")
+	
+func get_caller_incident() -> String:
+	var choice: IncidentType = _get_truth_or_lie_value(caller_incident, IncidentType.values(), caller_tellin_truth)
+	return IncidentType.keys()[choice].replace("_", " ")
