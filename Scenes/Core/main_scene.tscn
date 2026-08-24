@@ -86,3 +86,4 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 32
 text = "Lorem ipsum and gooner goons or something"
+visible_characters_behavior = 1

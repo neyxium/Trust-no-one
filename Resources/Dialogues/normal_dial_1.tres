@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Dialogue" format=3 uid="uid://3fdjpuqbfisp"]
+
+[ext_resource type="Script" uid="uid://c2gpumjv2kbpm" path="res://Scripts/Resource/Dialogue.gd" id="1_j4oft"]
+
+[resource]
+script = ExtResource("1_j4oft")
+dialogue_sequence = Array[String](["There's been an {incident}! Please help!!", "I'm currently at {location}. My name is {caller}..."])
+truth_chance = 70.0
+metadata/_custom_type_script = "uid://c2gpumjv2kbpm"

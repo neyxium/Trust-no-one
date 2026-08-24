@@ -65,7 +65,6 @@ enum IncidentType
 @export var caller_tellin_truth: bool
 
 @export_group("Templates")
-@export_multiline var text: String
 const DIALOGUE_TEMPLATES: Array[String] = [
 	"Oh god, please help me! My name is {caller}. I'm currently at {location} and... oh no, there's an {incident}! Please send someone immediately!",
 	"Hi, yes, dispatch? This is {caller}. Listen, I'm standing right outside {location} and a major {incident} just broke out. I think someone is hurt!",
@@ -76,9 +75,18 @@ const DIALOGUE_TEMPLATES: Array[String] = [
 	"Ugh, hello? This is {caller}. I was just trying to enjoy my day at {location} and now there's a complete {incident} blocking my way. This is completely unacceptable!",
 	"Listen to me very carefully, my name is {caller}. You need to send units to {location} right now because this {incident} is ruining everything. Do you know who I am?!",
 	"Uh, hello, 911? {caller} speaking from {location}. So, funny story... a massive {incident} just happened out of nowhere. Can you like, send someone? Thanks."
+] # keeping this for the dialogue resources
+
+var dialogue_list: Array[String] = []
+const DIALOGUES: Array[Dialogue] = [
+	preload("res://Resources/Dialogues/normal_dial_1.tres"),
+	preload("res://Resources/Dialogues/normal_dial_2.tres"),
+	preload("res://Resources/Dialogues/secret_dial_1.tres"),
 ]
 
-func get_formatted_dialogue() -> String:
+func get_formatted_dialogue(index) -> String:
+	var text = dialogue_list[index]
+	
 	var name_str = get_caller_name()
 	var location_str = get_caller_location()
 	var incident_str = get_caller_incident()
@@ -108,14 +116,31 @@ func get_caller_location() -> String:
 func get_caller_incident() -> String:
 	var choice: IncidentType = _get_truth_or_lie_value(caller_incident, IncidentType.values(), caller_tellin_truth)
 	return IncidentType.keys()[choice].replace("_", " ")
+
+static func get_random_dialogue() -> Dialogue:
+	var total := 0.0
 	
+	for dialogue in DIALOGUES:
+		total += dialogue.appearance_weight
+	
+	var roll := randf_range(0.0, total)
+	
+	for dialogue in DIALOGUES:
+		roll -= dialogue.appearance_weight
+	
+		if roll <= 0.0:
+			return dialogue as Dialogue
+	
+	return DIALOGUES.back()
+
 static func generate_random_call() -> EmergencyCall:
 	var random_call = EmergencyCall.new()
+	var random_dialogue = get_random_dialogue()
 	
 	random_call.caller_name = CallerName.values().pick_random() as CallerName
 	random_call.caller_location = LocationName.values().pick_random() as LocationName
 	random_call.caller_incident = IncidentType.values().pick_random() as IncidentType
-	random_call.caller_tellin_truth = randf() < 0.5
-	random_call.text = DIALOGUE_TEMPLATES.pick_random()
+	random_call.caller_tellin_truth = randf() < random_dialogue.truth_chance
+	random_call.dialogue_list = random_dialogue.dialogue_sequence
 	
 	return random_call
