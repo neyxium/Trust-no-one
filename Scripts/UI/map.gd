@@ -30,11 +30,11 @@ func _on_button_button_up() -> void:
 func _on_button_gui_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_WHEEL_UP and event.pressed:
-			map_scale = clampf(map_scale + SCROLL_SPEED * map_scale, 4.0, 16.0)
+			map_scale = clampf(map_scale + SCROLL_SPEED * map_scale, 2.0, 22.0)
 			update_map_size()
 		
 		elif event.button_index == MOUSE_BUTTON_WHEEL_DOWN and event.pressed:
-			map_scale = clampf(map_scale - SCROLL_SPEED * map_scale, 4.0, 16.0)
+			map_scale = clampf(map_scale - SCROLL_SPEED * map_scale, 2.0, 22.0)
 			update_map_size()
 
 func update_map_size():
