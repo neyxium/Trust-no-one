@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://yf4mgkgwmukg"]
+
+[ext_resource type="Script" uid="uid://23823ghaqlwr" path="res://Scripts/UI/map.gd" id="1_q1b06"]
+[ext_resource type="Texture2D" uid="uid://c6plicuiabwsd" path="res://Assets/Images/temporarymap.png" id="1_ur38k"]
+
+[node name="Map" type="Control" unique_id=309022990]
+custom_minimum_size = Vector2(200, 200)
+clip_contents = true
+layout_mode = 3
+anchor_right = 0.17400001
+anchor_bottom = 0.30900002
+offset_right = -0.4480133
+offset_bottom = -0.23200989
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q1b06")
+
+[node name="MapWorld" type="Control" parent="." unique_id=479144777]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MapImage" type="TextureRect" parent="MapWorld" unique_id=931894463]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ur38k")
+stretch_mode = 3
+
+[connection signal="gui_input" from="." to="." method="_on_map_input"]
