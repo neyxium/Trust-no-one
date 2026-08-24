@@ -9,7 +9,7 @@ var scaled_up := false
 
 var tap_position := Vector2.ZERO
 var map_position := Vector2.ZERO
-var map_scale := 2.0
+var map_scale := 4.0
 
 func _ready() -> void:
 	node_position = position
@@ -44,8 +44,8 @@ func _on_scale_button_button_down() -> void:
 	scaled_up = not scaled_up
 	
 	if scaled_up:
-		size = Vector2(1100, 580)
-		position = node_position - Vector2(size.x - 200, 0)
+		size = Vector2(1390, 680)
+		position = node_position - Vector2(size.x - 400, 0)
 	else:
-		size = Vector2(200, 200)
+		size = Vector2(400, 400)
 		position = node_position
