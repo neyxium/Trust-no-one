@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://cxt3entdly4yd"]
+
+[ext_resource type="Texture2D" uid="uid://cnw0pd7kbfk0o" path="res://Assets/Images/Monitor.png" id="1_uv23o"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7dy88"]
+
+[node name="MainScene" type="Control" unique_id=808150909]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MonitorBG" type="TextureRect" parent="." unique_id=513709911]
+custom_minimum_size = Vector2(1000, 564)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.065000005
+anchor_top = 0.065000005
+anchor_right = 0.93500006
+anchor_bottom = 0.93500006
+offset_left = -0.2133789
+offset_top = -0.12000275
+offset_right = 0.21325684
+offset_bottom = 0.11993408
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_uv23o")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="MainPanel" type="Panel" parent="MonitorBG" unique_id=1887411217]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.16900001
+anchor_top = 0.048
+anchor_right = 0.836
+anchor_bottom = 0.75500005
+offset_left = -1.1173248
+offset_top = -0.0720005
+offset_right = -0.8960571
+offset_bottom = 0.17996216
+theme_override_styles/panel = SubResource("StyleBoxEmpty_7dy88")
+
+[node name="DialoguePanel" type="Panel" parent="MonitorBG/MainPanel" unique_id=1192188513]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -334.5
+offset_top = -62.0
+offset_right = 334.5
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Dialogue" type="RichTextLabel" parent="MonitorBG/MainPanel/DialoguePanel" unique_id=1068092025]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.019000001
+anchor_top = 0.081
+anchor_right = 0.98100007
+anchor_bottom = 0.919
+offset_left = 0.28899956
+offset_top = -0.021999836
+offset_right = -0.2890625
+offset_bottom = 0.02199936
+grow_horizontal = 2
+grow_vertical = 2
+text = "Lorem ipsum and gooner goons or something"
