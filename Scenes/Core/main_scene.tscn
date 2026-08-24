@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://cxt3entdly4yd"]
 
+[ext_resource type="Script" uid="uid://bpfynffa36af0" path="res://Scenes/Core/game_manager.gd" id="1_owver"]
 [ext_resource type="Texture2D" uid="uid://cnw0pd7kbfk0o" path="res://Assets/Images/Monitor.png" id="1_uv23o"]
+[ext_resource type="Resource" uid="uid://cjxwr6634tq8y" path="res://Resources/Calls/TestCall.tres" id="2_nqjtw"]
 [ext_resource type="PackedScene" uid="uid://yf4mgkgwmukg" path="res://Scenes/Core/map.tscn" id="2_owver"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7dy88"]
@@ -12,6 +14,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_owver")
+current_call = ExtResource("2_nqjtw")
 
 [node name="MonitorBG" type="TextureRect" parent="." unique_id=513709911]
 custom_minimum_size = Vector2(1000, 564)
@@ -70,6 +74,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Dialogue" type="RichTextLabel" parent="MonitorBG/MainPanel/DialoguePanel" unique_id=1068092025]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.019000001
