@@ -95,3 +95,21 @@ offset_right = -0.76000977
 offset_bottom = 408.8797
 grow_horizontal = 0
 grow_vertical = 1
+
+[node name="SendUnitsButton" type="Button" parent="MonitorBG/MainPanel" unique_id=902688214]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 978.6426
+offset_top = 460.19202
+offset_right = 1378.6426
+offset_bottom = 560.192
+text = "SEND UNITS"
+
+[node name="FinishCallButton" type="Button" parent="MonitorBG/MainPanel" unique_id=1547067005]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 980.0
+offset_top = 580.0
+offset_right = 1380.0
+offset_bottom = 680.0
+text = "END CALL"
