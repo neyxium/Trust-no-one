@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bpfynffa36af0" path="res://Scenes/Core/game_manager.gd" id="1_owver"]
 [ext_resource type="Texture2D" uid="uid://cnw0pd7kbfk0o" path="res://Assets/Images/Monitor.png" id="1_uv23o"]
 [ext_resource type="PackedScene" uid="uid://yf4mgkgwmukg" path="res://Scenes/Core/map.tscn" id="2_owver"]
+[ext_resource type="PackedScene" uid="uid://c7b77mprcaugy" path="res://Scenes/UI/notepad.tscn" id="4_8m8v4"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_7dy88"]
 
@@ -46,18 +47,6 @@ offset_right = -0.8960571
 offset_bottom = 0.17996216
 theme_override_styles/panel = SubResource("StyleBoxEmpty_7dy88")
 
-[node name="Map" parent="MonitorBG/MainPanel" unique_id=309022990 instance=ExtResource("2_owver")]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -400.76
-offset_top = 8.879677
-offset_right = -0.76000977
-offset_bottom = 408.87967
-grow_horizontal = 0
-grow_vertical = 1
-
 [node name="DialoguePanel" type="Panel" parent="MonitorBG/MainPanel" unique_id=1192188513]
 layout_mode = 1
 anchors_preset = -1
@@ -87,3 +76,22 @@ grow_vertical = 2
 theme_override_font_sizes/normal_font_size = 32
 text = "Lorem ipsum and gooner goons or something"
 visible_characters_behavior = 1
+
+[node name="Notepad" parent="MonitorBG/MainPanel" unique_id=1782921878 instance=ExtResource("4_8m8v4")]
+layout_mode = 1
+offset_left = -2.3574219
+offset_top = 10.192001
+offset_right = -2.3574219
+offset_bottom = 10.192017
+
+[node name="Map" parent="MonitorBG/MainPanel" unique_id=309022990 instance=ExtResource("2_owver")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -400.76
+offset_top = 8.879684
+offset_right = -0.76000977
+offset_bottom = 408.8797
+grow_horizontal = 0
+grow_vertical = 1
