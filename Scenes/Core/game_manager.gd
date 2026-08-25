@@ -45,6 +45,7 @@ func show_call(call: EmergencyCall) -> void:
 
 func start_new_call() -> void:
 	print("Razpoložljive enote: ", available_units)
+	print("Zmarnowane jednoski: ", wasted_units)
 	
 	send_button.disabled = (available_units <= 0)
 	current_call = EmergencyCall.generate_random_call()
